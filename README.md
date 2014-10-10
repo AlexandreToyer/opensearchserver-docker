@@ -56,7 +56,7 @@ Column `PORTS` gives us the port to use. In this example it's `49185`.
 
 ### Open browser to access OpenSearchServer
 
-Browse to 127.0.0.1:<port used by docker>, for example `127.0.0.1:49185`.
+Browse to `127.0.0.1:<port used by docker>`, for example `127.0.0.1:49185`.
 
 #### When using boot2docker
 
