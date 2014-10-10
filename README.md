@@ -6,24 +6,7 @@
 This image will allow for the quick, easy and unlimited parallel creation of systems hosting OpenSearchServer. 
 
 
-## Installation
-### Clone repo
-
-    git clone https://github.com/AlexandreToyer/opensearchserver-docker.git
-
-### Build images
-
-_Images are not yet on Docker Hub_
-
-#### Image for Debian + OpenJDK
-
-    docker build -t="alexandretoyer/debian-openjdk7jdk" ./debian-openjdk7jdk/
-
-#### Image for OpenSearchServer
-
-Current Dockerfile will download and use **`opensearchserver-1.5.7-b767.deb`**.
-
-    docker build -t="alexandretoyer/opensearchserver" ./opensearchserver/
+## Usage
 
 ### Run a container
 
@@ -58,12 +41,6 @@ Column `PORTS` gives us the port to use. In this example it's `49185`.
 
 Browse to `127.0.0.1:<port used by docker>`, for example `127.0.0.1:49185`.
 
-#### When using boot2docker
-
-First use command `boot2docker ip` to get IP used by boot2docker. Then use this IP and the port used by Docker to access OpenSearchServer, for example `192.168.59.103:49185`.
-
----
-
 
 OpenSearchServer now runs in a Docker container:
 
@@ -73,6 +50,11 @@ OpenSearchServer now runs in a Docker container:
 Data folder is stored on host system. For instance after having created an index named `test`:
 
 ![OpenSearchServer and Docker](docker_oss_2.png)
+
+#### When using boot2docker
+
+First use command `boot2docker ip` to get IP used by boot2docker. Then use this IP and the port used by Docker to access OpenSearchServer, for example `192.168.59.103:49185`.
+
 
 ## Create several containers
 It's now possible to create several containers:
@@ -105,3 +87,23 @@ Index are created in two different folders:
     drwxr-xr-x    2 999      1               60 Oct 10 08:09 logs/
     drwxr-xr-x    7 999      1              200 Oct 10 08:12 testOSS2/
     docker@boot2docker:~$
+
+---
+
+
+## Build images
+### Clone repo
+
+    git clone https://github.com/AlexandreToyer/opensearchserver-docker.git
+
+### Build images
+
+#### Image for Debian + OpenJDK
+
+    docker build -t="alexandretoyer/debian-openjdk7jdk" ./debian-openjdk7jdk/
+
+#### Image for OpenSearchServer
+
+Current Dockerfile will download and use **`opensearchserver-1.5.7-b767.deb`**.
+
+    docker build -t="alexandretoyer/opensearchserver" ./opensearchserver/
