@@ -10,6 +10,7 @@ RUN dpkg -i opensearchserver.deb
 RUN sed -e 's/OPENSEARCHSERVER_DATA=\/var\/lib\/opensearchserver\/data/OPENSEARCHSERVER_DATA=\/srv\/opensearchserver\/data/' -i /etc/opensearchserver
 
 ADD start_opensearchserver.sh /start_opensearchserver.sh
+RUN chmod +x /start_opensearchserver.sh
 
 VOLUME ["/srv"]
 WORKDIR /srv
