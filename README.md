@@ -1,7 +1,4 @@
-# Work in progress
-
-
-## Docker's image for OpenSearchServer
+# Docker image for OpenSearchServer
 
 This image will allow for the quick, easy and unlimited parallel creation of systems hosting OpenSearchServer. 
 
