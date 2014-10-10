@@ -31,6 +31,10 @@ Current Dockerfile will download and use **`opensearchserver-1.5.7-b767.deb`**.
 
     docker run -d -P -v </path/to/local/folder>:/srv alexandretoyer/opensearchserver
 
+* parameter `-d` tells docker to daemonize this container (run in background)
+* parameter `-P` tells docker to map ports exposed in the container
+* parameter `-v` is used to map a local folder to the `/srv` folder inside the container
+
 #### Configure memory
 
 Variable `MEMORY` can be used to configure memory to allow to OpenSearchServer.
