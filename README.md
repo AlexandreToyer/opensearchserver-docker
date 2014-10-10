@@ -55,6 +55,34 @@ Data folder is stored on host system. For instance after having created an index
 
 First use command `boot2docker ip` to get IP used by boot2docker. Then use this IP and the port used by Docker to access OpenSearchServer, for example `192.168.59.103:49185`.
 
+### Manage OpenSearchServer within a running container
+
+It may be useful to be able to manage an OpenSearchServer instance embedded into a running container.
+
+To do so use [jpetazzo/nsenter program](https://github.com/jpetazzo/nsenter).
+
+In this example (run with _boot2docker_ on a Windows system) a container is created and is then accessed so that OpenSearchServer can be stopped and restarted:
+
+    docker@boot2docker:~/DockerOSS$ docker run -P -d -v ~/DockerOSS/OSS1:/src alexandretoyer/opensearchserver
+    3e9442f18a6abe12513e12ddd8206f1c2e3008912039202b0bd631f4923b78c0
+    
+    docker@boot2docker:~/DockerOSS$ docker ps
+    CONTAINER ID        IMAGE                                    COMMAND                CREATED             STATUS              PORTS                     NAMES
+    3e9442f18a6a        alexandretoyer/opensearchserver:latest   /bin/sh -c '/start_o   3 seconds ago       Up 2 seconds        0.0.0.0:49153->9090/tcp   trusting_almeida
+    
+    docker@boot2docker:~/DockerOSS$ /var/lib/boot2docker/docker-enter trusting_almeida
+       root@3e9442f18a6a:~# service opensearchserver stop
+       Stopping OpenSearchServer ...
+       OpenSearchServer stopped ...
+    
+       root@3e9442f18a6a:~# service opensearchserver start
+       Starting OpenSearchServer ...
+       OpenSearchServer started ...
+    
+       root@3e9442f18a6a:~# exit
+       logout
+    
+    docker@boot2docker:~/DockerOSS$ 
 
 ## Create several containers
 It's now possible to create several containers:
