@@ -60,7 +60,7 @@ To do so use [jpetazzo/nsenter program](https://github.com/jpetazzo/nsenter).
 
 In this example (run with _boot2docker_ on a Windows system) a container is created and is then accessed so that OpenSearchServer can be stopped and restarted:
 
-    docker@boot2docker:~/DockerOSS$ docker run -P -d -v ~/DockerOSS/OSS1:/src alexandretoyer/opensearchserver
+    docker@boot2docker:~/DockerOSS$ docker run -P -d -v ~/DockerOSS/OSS1:/srv alexandretoyer/opensearchserver
     3e9442f18a6abe12513e12ddd8206f1c2e3008912039202b0bd631f4923b78c0
     
     docker@boot2docker:~/DockerOSS$ docker ps
