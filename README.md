@@ -34,9 +34,23 @@ Here is an output example for this:
 
 The value in the `PORTS` column is the port to use. In this example it's `49185`.
 
+#### Use a particular port
+
+Instead of using option `-P` one can use option `-p` with parameters `<public port>:<exposed port>`. For example: 
+
+    docker run -d -p 9091:9090 -v </path/to/local/folder>:/srv -e MEMORY=4g alexandretoyer/opensearchserver
+
+This would allow OpenSearchServer to be accessed with port 9091.
+
+### Give a specific name to the container
+
+A name can be given to the container with option `--name`. For example:
+
+    docker run --name oss -d -P -v </path/to/local/folder>:/srv -e MEMORY=4g alexandretoyer/opensearchserver
+
 ### Open a browser to access OpenSearchServer
 
-Browse to `127.0.0.1:<port used by docker>`. In this example: `127.0.0.1:49185`.
+Browse to `127.0.0.1:<port used by docker>`. In the above example: `127.0.0.1:49185`.
 
 
 OpenSearchServer now runs within a Docker container:
