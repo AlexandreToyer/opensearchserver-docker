@@ -130,6 +130,21 @@ Indexes are created within two different folders, like this:
 ---
 
 
+## FAQ
+
+#### When trying to create an index I get error `Exception inconnue: java.lang.NullPointerException.`
+* Try running the container with more memory (for example `-e MEMORY=2g`).
+* Check that directory `opensearchserver/data` (mapped to `/srv`) has succifient permission.
+
+
+#### When accessing OpenSearchServer's interface I see a red message saying `There is an issue with the data directory. Please check that the OPENSEARCHSERVER_DATA environment variable points to a valid directory.`
+
+* Check that container has been run with a correct mapping between a local folder and `/srv`. This local folder must contain a directory named `opensearchserver` and this `opensearchserver` directory must contain a directory named `data`.
+* Check that directory `opensearchserver/data` has succifient permission.
+
+---
+
+
 ## Build images
 ### Clone repo
 
